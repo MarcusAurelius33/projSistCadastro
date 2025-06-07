@@ -22,9 +22,51 @@ class FUNCIONARIO{
     void setId(int a);
     int getId();
 
-    virtual void exibirInformações();
+    virtual void exibirInformacoes();
 
     virtual float calcularSalarioFinal() = 0;
 
+};
+
+class Desenvolvedor: public FUNCIONARIO {
+    private:
+    int quantidadeDeProjetos;
+    string tipo = "Desenvolvedor";
+
+    public:
+    Desenvolvedor(string nome, float salarioBase, int id, int qtdProjetos);
+
+    int getProjetos();
+    string getTipo();
+    float calcularSalarioFinal();
+    void exibirInformacoes() override;
+};
+
+class Gerente: public FUNCIONARIO {
+    private:
+    float bonusMensal;
+    string tipo = "Gerente";
+    
+    public:
+    Gerente(string nome, float salarioBase, int id, float bonusMensal);
+
+    string getTipo();
+    float getBonusMensal();
+    float calcularSalarioFinal();
+    void exibirInformacoes() override;
+};
+
+class Estagiario: public FUNCIONARIO {
+    private:
+    int horasTrabalhadas;
+    string tipo = "Estagiario";
+
+    public:
+    Estagiario(string nome, float salarioBase, int id, int horasTrabalhadas);
+
+    string getTipo();
+    int getHorasTrabalhadas();
+    float calcularSalarioFinal();
+    void exibirInformacoes() override;
 };
 #endif;
