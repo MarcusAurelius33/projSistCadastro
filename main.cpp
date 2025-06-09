@@ -67,24 +67,6 @@ int main() {
 
         salarioBase = lerFloat("Digite o salario base: "); // Lê o salário base do funcionário
 
-        // Contadores para controlar o número de funcionários de cada tipo
-        int contadorDesenvolvedor = 0;
-        int contadorGerente = 0;
-        int contadorEstagiario = 0;
-
-        // Loop para contar quantos funcionários de cada tipo já foram cadastrados
-           for (int j = 0; j < i; j++) { 
-                if (dynamic_cast<Desenvolvedor*>(funcionarios[j].get()) != nullptr) {
-                    contadorDesenvolvedor++;
-                }
-                if (dynamic_cast<Gerente*>(funcionarios[j].get()) != nullptr) {
-                    contadorGerente++;
-                }
-                if (dynamic_cast<Estagiario*>(funcionarios[j].get()) != nullptr) {
-                    contadorEstagiario++;
-                }
-           }
-
         cout << "Tipo de funcionario:\n";
         cout << "1 - Desenvolvedor\n";
         cout << "2 - Gerente\n";
@@ -95,34 +77,17 @@ int main() {
         switch (tipo) { // Switch case para criar o objeto do tipo de funcionário escolhido
             case 1: { // Cria um Desenvolvedor
 
-                // Verifica se já foram cadastrados 2 desenvolvedores
-               if (contadorDesenvolvedor >= 2){
-                        cout << "Tipo 'Desenvolvedor' excedeu numero maximo (2).\n";
-                        i--; // Decrementa o contador do loop para tentar cadastrar novamente
-                        break;
-                    }
-
                 int qtdProjetos;
                 qtdProjetos= lerInteiro("Digite a quantidade de projetos: ");
                funcionarios[i] = make_unique<Desenvolvedor>(nome, salarioBase, id, qtdProjetos); // Cria um objeto Desenvolvedor e armazena o ponteiro inteligente no array
                 break;
             }
             case 2: { // Cria um Gerente
-               if (contadorGerente >= 2){ // Verifica se já foram cadastrados 2 gerentes
-                        cout << "Tipo 'Gerente' excedeu numero maximo (2).\n";
-                        i--; // Decrementa o contador do loop para tentar cadastrar novamente
-                        break;
-                    }
                 float bonusMensal = lerFloat("Digite o bonus mensal: ");
                 funcionarios[i] = make_unique<Gerente>(nome, salarioBase, id, bonusMensal); // Cria um objeto Gerente e armazena o ponteiro inteligente no array
                 break;
             }
             case 3: { // Cria um Estagiario
-               if (contadorEstagiario >= 2){ // Verifica se já foram cadastrados 2 estagiários
-                        cout << "Tipo 'Estagiário' excedeu numero maximo (2).\n";
-                        i--; // Decrementa o contador do loop para tentar cadastrar novamente
-                        break;
-                    }
                 int horasTrabalhadas;
                 horasTrabalhadas = lerInteiro("Digite as horas trabalhadas: ");
             funcionarios[i] = make_unique<Estagiario>(nome, salarioBase, id, horasTrabalhadas); // Cria um objeto Estagiario e armazena o ponteiro inteligente no array
