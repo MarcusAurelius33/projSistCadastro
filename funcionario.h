@@ -25,6 +25,5 @@ class FUNCIONARIO{ // Declaração da classe FUNCIONARIO
     virtual void exibirInformacoes(); // Método virtual para exibir informações do funcionário. Pode ser sobrescrito por classes derivadas.
 
     virtual float calcularSalarioFinal() = 0; // Método virtual puro para calcular o salário final. Torna a classe abstrata, obrigando as classes derivadas a implementarem este método.
-
 };
 #endif
