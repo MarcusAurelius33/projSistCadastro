@@ -23,10 +23,8 @@ void FUNCIONARIO::setId(int a){
 int FUNCIONARIO::getId(){
     return id;
 }
-
-void FUNCIONARIO::exibirInformações(){
+void FUNCIONARIO::exibirInformacoes(){
     cout << "id: " << this->getId() << endl;
     cout << "Nome: " << this->getNome() << endl;
     cout << "Salário base: " << this->getSalarioBase() << endl;
 }
-

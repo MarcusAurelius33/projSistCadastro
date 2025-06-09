@@ -22,9 +22,9 @@ class FUNCIONARIO{
     void setId(int a);
     int getId();
 
-    virtual void exibirInformações();
+    virtual void exibirInformacoes();
 
     virtual float calcularSalarioFinal() = 0;
 
 };
-#endif;
+#endif
